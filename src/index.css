@@ -29,3 +29,11 @@
   width: 100px;
   height: 30px;
 }
+
+.yellow {
+  background: rgb(233, 233, 141);
+}
+
+.blue {
+  background: rgb(109, 109, 206);
+}

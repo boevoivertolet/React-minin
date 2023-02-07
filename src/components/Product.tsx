@@ -6,21 +6,32 @@ interface ProductProps {
 }
 
 export function Product({ product }: ProductProps) {
+
   const [details, setDetails] = useState<boolean>(false);
 
-  const viewDetails = () => {
+
+  const buttonClassName = details ? "yellow" : "blue";
+
+  const viewDescription = () => {
     setDetails(!details);
   };
 
   return (
     <div className="product">
-      <img className="img" src={product.image} />
+      <img className="img" src={product.image} alt="#" />
       <div>{product.title}</div>
       <p>{product.price}</p>
-      <button className="button" onClick={viewDetails}>
-        {!details ? "Show details" : "Hide details"}
+      <button className={buttonClassName} onClick={viewDescription}>
+        {!details ? "Show details" : "Hide details"}{" "}
       </button>
-      {details && <p>{product.description}</p>}
+      {details && (
+        <div>
+          <p>{product.description}</p>
+          <p>
+            Rate:<span style={{ fontWeight: "bold" }}>{product.rating.rate}</span>
+          </p>
+        </div>
+      )}
     </div>
   );
 }
